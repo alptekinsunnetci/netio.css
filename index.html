@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="acik">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>netio.css - Turkce CSS Framework Dokumantasyonu</title>
+  <link rel="stylesheet" href="../dist/netio.css">
+  <style>
+    /* Dokumantasyona ozel stiller */
+    .demo-kutu {
+      padding: 1.5rem;
+      border: 1px solid var(--kenar-renk);
+      border-radius: var(--yuvarlaklık-orta);
+      margin-bottom: 1.5rem;
+      background: var(--arkaplan);
+    }
+    .demo-izgara .kolon,
+    .demo-izgara [class*="kolon-"] {
+      background: var(--birincil-acik);
+      border: 1px solid var(--birincil);
+      padding: 0.75rem;
+      text-align: center;
+      border-radius: var(--yuvarlaklık-kucuk);
+      font-size: 0.875rem;
+      color: var(--birincil-koyu);
+      margin-bottom: 0.5rem;
+    }
+    .bolum {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--kenar-renk);
+    }
+    .bolum:last-child { border-bottom: none; }
+    .bolum-baslik {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--birincil);
+    }
+    .bolum-aciklama {
+      color: var(--metin-soluk);
+      margin-bottom: 2rem;
+    }
+    .kod-onizleme {
+      background: var(--koyu);
+      color: #e2e8f0;
+      padding: 1rem;
+      border-radius: var(--yuvarlaklık-orta);
+      font-family: var(--yazi-tipi-kod);
+      font-size: 0.8rem;
+      overflow-x: auto;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+    .site-baslik {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, var(--birincil), #8b5cf6);
+      color: white;
+      margin-bottom: 0;
+    }
+    .site-baslik h1 { color: white; font-size: 3rem; margin-bottom: 0.5rem; }
+    .site-baslik p { color: rgba(255,255,255,0.85); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+    .tema-dugme {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--koyu);
+      color: var(--metin-beyaz);
+      border: none;
+      cursor: pointer;
+      font-size: 1.25rem;
+      box-shadow: var(--golge-buyuk);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== TEMA DEGISTIRME BUTONU ===== -->
+  <button class="tema-dugme" onclick="temaDegistir()" title="Tema Degistir">🌓</button>
+
+  <!-- ===== GEZINTI CUBUGU ===== -->
+  <nav class="gezinti gezinti-yapisan gezinti-koyu">
+    <div class="kapsayici" style="display:flex;align-items:center;justify-content:space-between;">
+      <a href="#" class="gezinti-marka">netio.css</a>
+      <button class="gezinti-acilan" onclick="menuAcKapa()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="gezinti-menu" id="anaMenu">
+        <li class="gezinti-oge"><a href="#izgara" class="gezinti-baglanti">Izgara</a></li>
+        <li class="gezinti-oge"><a href="#tipografi" class="gezinti-baglanti">Tipografi</a></li>
+        <li class="gezinti-oge"><a href="#butonlar" class="gezinti-baglanti">Butonlar</a></li>
+        <li class="gezinti-oge"><a href="#formlar" class="gezinti-baglanti">Formlar</a></li>
+        <li class="gezinti-oge"><a href="#kartlar" class="gezinti-baglanti">Kartlar</a></li>
+        <li class="gezinti-oge"><a href="#modal" class="gezinti-baglanti">Modal</a></li>
+        <li class="gezinti-oge"><a href="#bilesenler" class="gezinti-baglanti">Bilesenler</a></li>
+        <li class="gezinti-oge"><a href="#yardimcilar" class="gezinti-baglanti">Yardimcilar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ALANI ===== -->
+  <header class="site-baslik">
+    <h1>netio.css</h1>
+    <p>Turkce sinif isimli, hafif ve modern CSS framework. Bootstrap'in tum temel ozelliklerini Turkce olarak sunar.</p>
+    <div style="margin-top:1.5rem;display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+      <span class="rozet rozet-basari" style="font-size:0.9rem;padding:0.4em 0.8em;">v1.0.0</span>
+      <span class="rozet" style="font-size:0.9rem;padding:0.4em 0.8em;background:rgba(255,255,255,0.2);color:white;">~65 KB</span>
+      <span class="rozet" style="font-size:0.9rem;padding:0.4em 0.8em;background:rgba(255,255,255,0.2);color:white;">0 Bagimlilk</span>
+    </div>
+  </header>
+
+  <main class="kapsayici">
+
+    <!-- =============================================
+         BOLUM: IZGARA SİSTEMI
+         ============================================= -->
+    <section class="bolum" id="izgara">
+      <h2 class="bolum-baslik">Izgara (Grid) Sistemi</h2>
+      <p class="bolum-aciklama">12 kolonlu, flexbox tabanli, responsive grid sistemi. Mobil oncelikli tasarim.</p>
+
+      <!-- Esit kolonlar -->
+      <h4>Esit Kolonlar</h4>
+      <div class="demo-kutu demo-izgara">
+        <div class="satir">
+          <div class="kolon">kolon</div>
+          <div class="kolon">kolon</div>
+          <div class="kolon">kolon</div>
+        </div>
+      </div>
+
+      <!-- Belirli genislikler -->
+      <h4>Belirli Genislikler</h4>
+      <div class="demo-kutu demo-izgara">
+        <div class="satir">
+          <div class="kolon-4">kolon-4</div>
+          <div class="kolon-8">kolon-8</div>
+        </div>
+        <div class="satir">
+          <div class="kolon-3">kolon-3</div>
+          <div class="kolon-6">kolon-6</div>
+          <div class="kolon-3">kolon-3</div>
+        </div>
+        <div class="satir">
+          <div class="kolon-2">2</div>
+          <div class="kolon-2">2</div>
+          <div class="kolon-2">2</div>
+          <div class="kolon-2">2</div>
+          <div class="kolon-2">2</div>
+          <div class="kolon-2">2</div>
+        </div>
+      </div>
+
+      <!-- Responsive -->
+      <h4>Responsive Kolonlar</h4>
+      <p class="kucuk-metin mb-3">Ekrani kucultup deneyebilirsiniz: Mobilde tam genislik, tablette 2'li, masaustunde 4'lu.</p>
+      <div class="demo-kutu demo-izgara">
+        <div class="satir">
+          <div class="kolon-12 kolon-orta-6 kolon-buyuk-3">1. Kolon</div>
+          <div class="kolon-12 kolon-orta-6 kolon-buyuk-3">2. Kolon</div>
+          <div class="kolon-12 kolon-orta-6 kolon-buyuk-3">3. Kolon</div>
+          <div class="kolon-12 kolon-orta-6 kolon-buyuk-3">4. Kolon</div>
+        </div>
+      </div>
+
+      <div class="kod-onizleme">
+&lt;div class="kapsayici"&gt;
+  &lt;div class="satir"&gt;
+    &lt;div class="kolon-12 kolon-orta-6 kolon-buyuk-3"&gt;Icerik&lt;/div&gt;
+    &lt;div class="kolon-12 kolon-orta-6 kolon-buyuk-3"&gt;Icerik&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </div>
+    </section>
+
+    <!-- =============================================
+         BOLUM: TIPOGRAFI
+         ============================================= -->
+    <section class="bolum" id="tipografi">
+      <h2 class="bolum-baslik">Tipografi</h2>
+      <p class="bolum-aciklama">Basliklar, metin stilleri, alinti ve kod bloklari.</p>
+
+      <div class="demo-kutu">
+        <h1 class="baslik-1">Baslik 1 - baslik-1</h1>
+        <h2 class="baslik-2">Baslik 2 - baslik-2</h2>
+        <h3 class="baslik-3">Baslik 3 - baslik-3</h3>
+        <h4 class="baslik-4">Baslik 4 - baslik-4</h4>
+        <h5 class="baslik-5">Baslik 5 - baslik-5</h5>
+        <h6 class="baslik-6">Baslik 6 - baslik-6</h6>
+      </div>
+
+      <h4 class="mt-5">Metin Stilleri</h4>
+      <div class="demo-kutu">
+        <p class="on-paragraf">Bu bir on paragraf - daha buyuk ve vurgulu giris metni.</p>
+        <p>Normal paragraf metni. <span class="kalin">Kalin yazi</span>, <span class="italik">italik yazi</span>, <span class="alti-cizili">alti cizili</span>, <span class="isaretli">isaretli metin</span>.</p>
+        <p class="buyuk-harf">Buyuk harf sinifi</p>
+        <p class="metin-kes" style="max-width:300px;">Bu metin cok uzun oldugu icin kesilecek ve sonuna uc nokta eklenecek lorem ipsum dolor sit amet.</p>
+      </div>
+
+      <h4 class="mt-5">Alinti ve Kod</h4>
+      <div class="demo-kutu">
+        <blockquote class="alinti">
+          "Iyi tasarim, mumkun oldugunca az tasarimdir." - Dieter Rams
+        </blockquote>
+        <p>Satir ici kod: <code class="kod">.kapsayici</code> sinifini kullanin.</p>
+        <pre class="kod-blogu"><code>&lt;div class="kapsayici"&gt;
+  &lt;h1 class="baslik-1"&gt;Merhaba Dunya&lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- =============================================
+         BOLUM: BUTONLAR
+         ============================================= -->
+    <section class="bolum" id="butonlar">
+      <h2 class="bolum-baslik">Butonlar</h2>
+      <p class="bolum-aciklama">Farkli renk, boyut ve durumlarda buton cesitleri.</p>
+
+      <h4>Dolu Butonlar</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <button class="buton buton-birincil">Birincil</button>
+          <button class="buton buton-ikincil">Ikincil</button>
+          <button class="buton buton-basari">Basari</button>
+          <button class="buton buton-tehlike">Tehlike</button>
+          <button class="buton buton-uyari">Uyari</button>
+          <button class="buton buton-bilgi">Bilgi</button>
+          <button class="buton buton-koyu">Koyu</button>
+          <button class="buton buton-acik">Acik</button>
+        </div>
+      </div>
+
+      <h4>Cizgili (Outline) Butonlar</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <button class="buton buton-cizgili-birincil">Birincil</button>
+          <button class="buton buton-cizgili-ikincil">Ikincil</button>
+          <button class="buton buton-cizgili-basari">Basari</button>
+          <button class="buton buton-cizgili-tehlike">Tehlike</button>
+          <button class="buton buton-cizgili-uyari">Uyari</button>
+          <button class="buton buton-cizgili-bilgi">Bilgi</button>
+        </div>
+      </div>
+
+      <h4>Boyutlar</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
+          <button class="buton buton-birincil buton-mini">Mini</button>
+          <button class="buton buton-birincil buton-kucuk">Kucuk</button>
+          <button class="buton buton-birincil">Normal</button>
+          <button class="buton buton-birincil buton-buyuk">Buyuk</button>
+          <button class="buton buton-birincil buton-dev">Dev</button>
+        </div>
+      </div>
+
+      <h4>Ozel Stiller</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
+          <button class="buton buton-birincil buton-yuvarlak">Yuvarlak</button>
+          <button class="buton buton-birincil buton-tam">Tam Genislik Buton</button>
+          <button class="buton buton-birincil" disabled>Devre Disi</button>
+          <button class="buton buton-birincil yukleniyor">Yukleniyor</button>
+        </div>
+      </div>
+
+      <h4>Buton Grubu</h4>
+      <div class="demo-kutu">
+        <div class="buton-grubu">
+          <button class="buton buton-birincil">Sol</button>
+          <button class="buton buton-birincil">Orta</button>
+          <button class="buton buton-birincil">Sag</button>
+        </div>
+      </div>
+
+      <div class="kod-onizleme">
+&lt;button class="buton buton-birincil"&gt;Birincil&lt;/button&gt;
+&lt;button class="buton buton-cizgili-tehlike buton-buyuk"&gt;Buyuk Tehlike&lt;/button&gt;
+&lt;button class="buton buton-basari buton-yuvarlak"&gt;Yuvarlak&lt;/button&gt;
+&lt;button class="buton buton-birincil" disabled&gt;Devre Disi&lt;/button&gt;
+      </div>
+    </section>
+
+    <!-- =============================================
+         BOLUM: FORMLAR
+         ============================================= -->
+    <section class="bolum" id="formlar">
+      <h2 class="bolum-baslik">Form Elemanlari</h2>
+      <p class="bolum-aciklama">Input, textarea, select, checkbox, radio, switch ve dogrulama durumlari.</p>
+
+      <div class="demo-kutu">
+        <div class="satir">
+          <div class="kolon-12 kolon-orta-6">
+            <div class="form-grup">
+              <label class="form-etiket">Ad Soyad</label>
+              <input type="text" class="form-girdi" placeholder="Adinizi girin...">
+            </div>
+            <div class="form-grup">
+              <label class="form-etiket">E-posta</label>
+              <input type="email" class="form-girdi gecerli" placeholder="ornek@email.com">
+              <span class="form-gecerli-mesaj">Gecerli e-posta adresi</span>
+            </div>
+            <div class="form-grup">
+              <label class="form-etiket">Sifre</label>
+              <input type="password" class="form-girdi gecersiz" placeholder="Sifrenizi girin">
+              <span class="form-gecersiz-mesaj">Sifre en az 8 karakter olmali</span>
+            </div>
+            <div class="form-grup">
+              <label class="form-etiket">Sehir</label>
+              <select class="form-secim">
+                <option>Secin...</option>
+                <option>Istanbul</option>
+                <option>Ankara</option>
+                <option>Izmir</option>
+              </select>
+            </div>
+          </div>
+          <div class="kolon-12 kolon-orta-6">
+            <div class="form-grup">
+              <label class="form-etiket">Mesajiniz</label>
+              <textarea class="form-metin" placeholder="Mesajinizi yazin..."></textarea>
+            </div>
+            <div class="form-grup">
+              <label class="form-onay">
+                <input type="checkbox" checked> Kullanim kosullarini kabul ediyorum
+              </label>
+              <label class="form-onay">
+                <input type="checkbox"> Haber bultenine abone ol
+              </label>
+            </div>
+            <div class="form-grup">
+              <label class="form-radyo">
+                <input type="radio" name="plan" checked> Ucretsiz Plan
+              </label>
+              <label class="form-radyo">
+                <input type="radio" name="plan"> Pro Plan
+              </label>
+            </div>
+            <div class="form-grup">
+              <label class="form-etiket">Bildirimler</label>
+              <label class="form-anahtar">
+                <input type="checkbox" checked>
+                <span>Acik</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4>Girdi Grubu</h4>
+      <div class="demo-kutu">
+        <div class="girdi-grubu" style="max-width:400px;">
+          <span class="girdi-on-ek">https://</span>
+          <input type="text" class="form-girdi" placeholder="site-adiniz">
+          <span class="girdi-son-ek">.com</span>
+        </div>
+      </div>
+
+      <div class="kod-onizleme">
+&lt;div class="form-grup"&gt;
+  &lt;label class="form-etiket"&gt;E-posta&lt;/label&gt;
+  &lt;input type="email" class="form-girdi" placeholder="ornek@email.com"&gt;
+&lt;/div&gt;
+&lt;label class="form-anahtar"&gt;
+  &lt;input type="checkbox" checked&gt; &lt;span&gt;Acik&lt;/span&gt;
+&lt;/label&gt;
+      </div>
+    </section>
+
+    <!-- =============================================
+         BOLUM: KARTLAR
+         ============================================= -->
+    <section class="bolum" id="kartlar">
+      <h2 class="bolum-baslik">Kartlar (Card)</h2>
+      <p class="bolum-aciklama">Icerik gruplama icin esnek kart bileseni.</p>
+
+      <div class="satir bosluk-4">
+        <div class="kolon-12 kolon-orta-4">
+          <div class="kart">
+            <div style="height:160px;background:linear-gradient(135deg,var(--birincil),#8b5cf6);border-radius:var(--yuvarlaklık-orta) var(--yuvarlaklık-orta) 0 0;"></div>
+            <div class="kart-govde">
+              <h5 class="kart-baslik">Kart Basligi</h5>
+              <p class="kart-metin">Bu bir kart bileseni ornegi. Icerik, resim ve aksiyonlari gruplamak icin kullanilir.</p>
+              <button class="buton buton-birincil buton-kucuk">Devamini Oku</button>
+            </div>
+          </div>
+        </div>
+        <div class="kolon-12 kolon-orta-4">
+          <div class="kart">
+            <div class="kart-ustbilgi">Ozellik</div>
+            <div class="kart-govde">
+              <h5 class="kart-baslik">Ustbilgili Kart</h5>
+              <p class="kart-metin">Bu kartta ustbilgi ve altlik alanlari mevcut. Daha yapilandirilmis bir goruntuleme saglar.</p>
+            </div>
+            <div class="kart-altlik">Son guncelleme: 2 saat once</div>
+          </div>
+        </div>
+        <div class="kolon-12 kolon-orta-4">
+          <div class="kart">
+            <div class="kart-govde metin-ortala">
+              <div class="avatar avatar-buyuk mx-oto mb-3" style="background:var(--basari-acik);color:var(--basari);">AY</div>
+              <h5 class="kart-baslik">Ayse Yilmaz</h5>
+              <p class="kart-metin">Frontend Gelistirici</p>
+              <div style="display:flex;gap:0.5rem;justify-content:center;">
+                <button class="buton buton-birincil buton-kucuk">Takip Et</button>
+                <button class="buton buton-cizgili-ikincil buton-kucuk">Mesaj</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kod-onizleme">
+&lt;div class="kart"&gt;
+  &lt;img src="resim.jpg" class="kart-resim kart-resim-ust" alt="..."&gt;
+  &lt;div class="kart-govde"&gt;
+    &lt;h5 class="kart-baslik"&gt;Kart Basligi&lt;/h5&gt;
+    &lt;p class="kart-metin"&gt;Kart aciklamasi...&lt;/p&gt;
+    &lt;button class="buton buton-birincil"&gt;Aksiyon&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </div>
+    </section>
+
+    <!-- =============================================
+         BOLUM: MODAL
+         ============================================= -->
+    <section class="bolum" id="modal">
+      <h2 class="bolum-baslik">Modal (Acilir Pencere)</h2>
+      <p class="bolum-aciklama">Kullanici etkilesimi icin acilir pencere bileseni.</p>
+
+      <button class="buton buton-birincil" onclick="modalAc()">Modal Ac</button>
+
+      <!-- Modal -->
+      <div class="modal-perde" id="ornekModal">
+        <div class="modal-pencere">
+          <div class="modal-baslik">
+            <h4 style="margin:0;">Onay Penceresi</h4>
+            <button class="modal-kapat" onclick="modalKapat()"></button>
+          </div>
+          <div class="modal-govde">
+            <p>Bu bir modal pencere ornegi. Kullanicidan onay almak, form doldurmak veya bilgi gostermek icin kullanilabilir.</p>
+            <p class="metin-soluk kucuk-metin mb-0">Modal disina tiklayarak veya X butonuna basarak kapatabilirsiniz.</p>
+          </div>
+          <div class="modal-altlik">
+            <button class="buton buton-ikincil buton-kucuk" onclick="modalKapat()">Iptal</button>
+            <button class="buton buton-birincil buton-kucuk" onclick="modalKapat()">Onayla</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="kod-onizleme">
+&lt;div class="modal-perde acik"&gt;
+  &lt;div class="modal-pencere"&gt;
+    &lt;div class="modal-baslik"&gt;
+      &lt;h4&gt;Baslik&lt;/h4&gt;
+      &lt;button class="modal-kapat"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-govde"&gt;Icerik...&lt;/div&gt;
+    &lt;div class="modal-altlik"&gt;
+      &lt;button class="buton buton-birincil"&gt;Onayla&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </div>
+    </section>
+
+    <!-- =============================================
+         BOLUM: BILESENLER
+         ============================================= -->
+    <section class="bolum" id="bilesenler">
+      <h2 class="bolum-baslik">Bilesenler</h2>
+      <p class="bolum-aciklama">Uyari, rozet, spinner, liste grubu, akordiyon, sekmeler, tablo ve daha fazlasi.</p>
+
+      <!-- Uyarilar -->
+      <h4>Uyarilar (Alert)</h4>
+      <div class="demo-kutu">
+        <div class="uyari uyari-birincil">Bilgilendirme: Bu bir birincil uyari mesajidir. <button class="uyari-kapat"></button></div>
+        <div class="uyari uyari-basari">Basarili! Islem tamamlandi. <button class="uyari-kapat"></button></div>
+        <div class="uyari uyari-uyari">Dikkat! Bu islem geri alinamaz.</div>
+        <div class="uyari uyari-tehlike">Hata! Bir sorun olustu, lutfen tekrar deneyin.</div>
+        <div class="uyari uyari-bilgi">Ipucu: Koyu tema icin sag alttaki butonu kullanin.</div>
+      </div>
+
+      <!-- Rozetler -->
+      <h4>Rozetler (Badge)</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
+          <span class="rozet rozet-birincil">Birincil</span>
+          <span class="rozet rozet-ikincil">Ikincil</span>
+          <span class="rozet rozet-basari">Basari</span>
+          <span class="rozet rozet-tehlike">Tehlike</span>
+          <span class="rozet rozet-uyari">Uyari</span>
+          <span class="rozet rozet-bilgi">Bilgi</span>
+        </div>
+      </div>
+
+      <!-- Spinner -->
+      <h4>Dondurucu (Spinner)</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;gap:1.5rem;align-items:center;">
+          <div class="dondurucu dondurucu-kucuk"></div>
+          <div class="dondurucu"></div>
+          <div class="dondurucu dondurucu-buyuk"></div>
+          <div class="dondurucu dondurucu-basari"></div>
+          <div class="dondurucu dondurucu-tehlike"></div>
+          <div class="dondurucu-nokta">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tooltip -->
+      <h4>Ipucu (Tooltip)</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;gap:2rem;flex-wrap:wrap;padding:2rem 0;">
+          <span class="ipucu" data-ipucu="Ust tarafta ipucu!">Ust ipucu</span>
+          <span class="ipucu ipucu-alt" data-ipucu="Alt tarafta ipucu!">Alt ipucu</span>
+          <span class="ipucu ipucu-sol" data-ipucu="Sol tarafta!">Sol ipucu</span>
+          <span class="ipucu ipucu-sag" data-ipucu="Sag tarafta!">Sag ipucu</span>
+        </div>
+      </div>
+
+      <!-- Ilerleme Cubugu -->
+      <h4>Ilerleme Cubugu (Progress)</h4>
+      <div class="demo-kutu">
+        <div class="ilerleme"><div class="ilerleme-cubuk" style="width:25%;"></div></div>
+        <div class="ilerleme"><div class="ilerleme-cubuk ilerleme-cubuk-basari" style="width:50%;"></div></div>
+        <div class="ilerleme"><div class="ilerleme-cubuk ilerleme-cubuk-uyari" style="width:75%;"></div></div>
+        <div class="ilerleme"><div class="ilerleme-cubuk ilerleme-cubuk-tehlike" style="width:90%;"></div></div>
+      </div>
+
+      <!-- Avatar -->
+      <h4>Avatar</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;gap:1rem;align-items:center;">
+          <div class="avatar avatar-kucuk">K</div>
+          <div class="avatar">AY</div>
+          <div class="avatar avatar-buyuk" style="background:var(--tehlike-acik);color:var(--tehlike);">MK</div>
+          <div class="avatar-grubu">
+            <div class="avatar" style="background:var(--birincil-acik);color:var(--birincil);">A</div>
+            <div class="avatar" style="background:var(--basari-acik);color:var(--basari);">B</div>
+            <div class="avatar" style="background:var(--tehlike-acik);color:var(--tehlike);">C</div>
+            <div class="avatar" style="background:var(--uyari-acik);color:var(--uyari);">+5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ekmek Kirintisi -->
+      <h4>Ekmek Kirintisi (Breadcrumb)</h4>
+      <div class="demo-kutu">
+        <ul class="ekmek-kirintisi">
+          <li><a href="#">Ana Sayfa</a></li>
+          <li><a href="#">Urunler</a></li>
+          <li><a href="#">Elektronik</a></li>
+          <li>Telefonlar</li>
+        </ul>
+      </div>
+
+      <!-- Liste Grubu -->
+      <h4>Liste Grubu</h4>
+      <div class="demo-kutu" style="max-width:400px;">
+        <div class="liste-grubu">
+          <div class="liste-grubu-oge aktif">Aktif Oge <span class="rozet rozet-birincil">3</span></div>
+          <a href="#" class="liste-grubu-oge">Ikinci Oge</a>
+          <a href="#" class="liste-grubu-oge">Ucuncu Oge</a>
+          <div class="liste-grubu-oge" style="opacity:0.5;">Devre Disi Oge</div>
+        </div>
+      </div>
+
+      <!-- Akordiyon -->
+      <h4 class="mt-5">Akordiyon (Accordion)</h4>
+      <div class="demo-kutu" style="max-width:600px;">
+        <div class="akordiyon">
+          <div class="akordiyon-oge acik">
+            <button class="akordiyon-baslik" onclick="akordiyonAcKapa(this)">netio.css nedir?</button>
+            <div class="akordiyon-icerik">
+              <div class="akordiyon-govde">netio.css, Turkce sinif isimleri kullanan, Bootstrap benzeri, hafif ve modern bir CSS framework'udur. Sifir bagimlilk ile calisan ve kolay ogrenilen bir yapiya sahiptir.</div>
+            </div>
+          </div>
+          <div class="akordiyon-oge">
+            <button class="akordiyon-baslik" onclick="akordiyonAcKapa(this)">Nasil kullanilir?</button>
+            <div class="akordiyon-icerik">
+              <div class="akordiyon-govde">dist/netio.css dosyasini projenize dahil edin, ardindan Turkce sinif isimlerini HTML elemanlariniza ekleyin. Ornegin: class="buton buton-birincil"</div>
+            </div>
+          </div>
+          <div class="akordiyon-oge">
+            <button class="akordiyon-baslik" onclick="akordiyonAcKapa(this)">Tema nasil degistirilir?</button>
+            <div class="akordiyon-icerik">
+              <div class="akordiyon-govde">HTML etiketine data-tema="koyu" ekleyerek koyu temayi aktif edebilirsiniz. CSS degiskenleri uzerinden tum renkleri ozellestirmek de mumkundur.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sekmeler -->
+      <h4 class="mt-5">Sekmeler (Tabs)</h4>
+      <div class="demo-kutu">
+        <div class="sekmeler">
+          <button class="sekme aktif" onclick="sekmeAc(this, 'sekme1')">Genel Bakis</button>
+          <button class="sekme" onclick="sekmeAc(this, 'sekme2')">Ozellikler</button>
+          <button class="sekme" onclick="sekmeAc(this, 'sekme3')">Kurulum</button>
+        </div>
+        <div class="sekme-icerik aktif" id="sekme1">
+          <p>netio.css, Bootstrap'e alternatif olarak tasarlanmis, tamamen Turkce sinif isimleri kullanan bir CSS framework'udur.</p>
+        </div>
+        <div class="sekme-icerik" id="sekme2">
+          <p>12 kolonlu grid, responsive tasarim, 50+ bilesen, koyu tema destegi, utility siniflari ve daha fazlasi.</p>
+        </div>
+        <div class="sekme-icerik" id="sekme3">
+          <p><code class="kod">&lt;link rel="stylesheet" href="dist/netio.css"&gt;</code> satiri ile projenize ekleyebilirsiniz.</p>
+        </div>
+      </div>
+
+      <!-- Hapli Sekmeler -->
+      <h4 class="mt-4">Hapli Sekmeler</h4>
+      <div class="demo-kutu">
+        <div class="sekmeler sekmeler-hap" style="max-width:300px;">
+          <button class="sekme aktif">Gunluk</button>
+          <button class="sekme">Haftalik</button>
+          <button class="sekme">Aylik</button>
+        </div>
+      </div>
+
+      <!-- Tablo -->
+      <h4 class="mt-5">Tablo</h4>
+      <div class="demo-kutu" style="overflow-x:auto;">
+        <table class="tablo tablo-seritli">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Bilesen</th>
+              <th>Sinif Adi</th>
+              <th>Durum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Buton</td>
+              <td><code class="kod">.buton</code></td>
+              <td><span class="rozet rozet-basari">Hazir</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Kart</td>
+              <td><code class="kod">.kart</code></td>
+              <td><span class="rozet rozet-basari">Hazir</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Modal</td>
+              <td><code class="kod">.modal-pencere</code></td>
+              <td><span class="rozet rozet-basari">Hazir</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Carousel</td>
+              <td><code class="kod">.slider</code></td>
+              <td><span class="rozet rozet-uyari">Beta</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- =============================================
+         BOLUM: YARDIMCILAR
+         ============================================= -->
+    <section class="bolum" id="yardimcilar">
+      <h2 class="bolum-baslik">Yardimci Siniflar (Utilities)</h2>
+      <p class="bolum-aciklama">Hizli stillendirme icin margin, padding, flex, renk ve daha fazla yardimci siniflar.</p>
+
+      <h4>Araliklar (Spacing)</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <div class="p-1 ap-birincil metin-beyaz yuvarlak-kucuk" style="font-size:0.75rem;">.p-1</div>
+          <div class="p-2 ap-birincil metin-beyaz yuvarlak-kucuk" style="font-size:0.75rem;">.p-2</div>
+          <div class="p-3 ap-birincil metin-beyaz yuvarlak-kucuk" style="font-size:0.75rem;">.p-3</div>
+          <div class="p-4 ap-birincil metin-beyaz yuvarlak-kucuk" style="font-size:0.75rem;">.p-4</div>
+          <div class="p-5 ap-birincil metin-beyaz yuvarlak-kucuk" style="font-size:0.75rem;">.p-5</div>
+        </div>
+      </div>
+
+      <h4>Metin Renkleri</h4>
+      <div class="demo-kutu">
+        <p class="metin-birincil mb-1">.metin-birincil - Birincil renk metni</p>
+        <p class="metin-basari mb-1">.metin-basari - Basarili durum metni</p>
+        <p class="metin-tehlike mb-1">.metin-tehlike - Hata/tehlike metni</p>
+        <p class="metin-uyari mb-1">.metin-uyari - Uyari metni</p>
+        <p class="metin-bilgi mb-1">.metin-bilgi - Bilgilendirme metni</p>
+        <p class="metin-soluk mb-0">.metin-soluk - Soluk/ikincil metin</p>
+      </div>
+
+      <h4>Arkaplan Renkleri</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span class="ap-birincil metin-beyaz p-2 yuvarlak-kucuk" style="font-size:0.75rem;">.ap-birincil</span>
+          <span class="ap-basari metin-beyaz p-2 yuvarlak-kucuk" style="font-size:0.75rem;">.ap-basari</span>
+          <span class="ap-tehlike metin-beyaz p-2 yuvarlak-kucuk" style="font-size:0.75rem;">.ap-tehlike</span>
+          <span class="ap-uyari p-2 yuvarlak-kucuk" style="font-size:0.75rem;">.ap-uyari</span>
+          <span class="ap-bilgi metin-beyaz p-2 yuvarlak-kucuk" style="font-size:0.75rem;">.ap-bilgi</span>
+          <span class="ap-koyu metin-beyaz p-2 yuvarlak-kucuk" style="font-size:0.75rem;">.ap-koyu</span>
+        </div>
+      </div>
+
+      <h4>Flex Yardimcilari</h4>
+      <div class="demo-kutu">
+        <div class="d-flex icerik-arasi oge-orta kenar p-3 yuvarlak-orta mb-3">
+          <span class="ap-birincil metin-beyaz p-2 yuvarlak-kucuk" style="font-size:0.75rem;">Sol</span>
+          <span class="ap-birincil metin-beyaz p-2 yuvarlak-kucuk" style="font-size:0.75rem;">Orta</span>
+          <span class="ap-birincil metin-beyaz p-2 yuvarlak-kucuk" style="font-size:0.75rem;">Sag</span>
+        </div>
+        <p class="kucuk-metin metin-soluk mb-0">.d-flex .icerik-arasi .oge-orta</p>
+      </div>
+
+      <h4>Golge</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;">
+          <div class="golge-kucuk p-4 yuvarlak-orta" style="min-width:100px;text-align:center;font-size:0.75rem;">.golge-kucuk</div>
+          <div class="golge p-4 yuvarlak-orta" style="min-width:100px;text-align:center;font-size:0.75rem;">.golge</div>
+          <div class="golge-orta p-4 yuvarlak-orta" style="min-width:100px;text-align:center;font-size:0.75rem;">.golge-orta</div>
+          <div class="golge-buyuk p-4 yuvarlak-orta" style="min-width:100px;text-align:center;font-size:0.75rem;">.golge-buyuk</div>
+        </div>
+      </div>
+
+      <h4>Kenar Yuvarlaklik</h4>
+      <div class="demo-kutu">
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+          <div class="kenar p-3 yuvarlak-yok" style="font-size:0.75rem;">.yuvarlak-yok</div>
+          <div class="kenar p-3 yuvarlak-kucuk" style="font-size:0.75rem;">.yuvarlak-kucuk</div>
+          <div class="kenar p-3 yuvarlak" style="font-size:0.75rem;">.yuvarlak</div>
+          <div class="kenar p-3 yuvarlak-orta" style="font-size:0.75rem;">.yuvarlak-orta</div>
+          <div class="kenar p-3 yuvarlak-buyuk" style="font-size:0.75rem;">.yuvarlak-buyuk</div>
+          <div class="kenar p-3 yuvarlak-tam" style="font-size:0.75rem;">.yuvarlak-tam</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         TEMA YONETIMI BÖLÜMÜ
+         ============================================= -->
+    <section class="bolum" id="tema">
+      <h2 class="bolum-baslik">Tema & Renk Yonetimi</h2>
+      <p class="bolum-aciklama">CSS degiskenleri ile kolay tema ozellestirme. Light/Dark mod destegi.</p>
+
+      <div class="demo-kutu">
+        <h5 class="mb-3">Tema Degistirme Yontemleri</h5>
+        <div class="kod-onizleme mb-4">
+&lt;!-- 1. HTML attribute ile --&gt;
+&lt;html data-tema="koyu"&gt;
+
+&lt;!-- 2. CSS sinifi ile --&gt;
+&lt;body class="tema-koyu"&gt;
+
+&lt;!-- 3. JavaScript ile --&gt;
+&lt;script&gt;
+  document.documentElement.setAttribute('data-tema', 'koyu');
+&lt;/script&gt;
+        </div>
+
+        <h5 class="mb-3">Ozel Renk Tanimla</h5>
+        <div class="kod-onizleme">
+:root {
+  /* Ana renkleri degistirmek icin */
+  --birincil: #8b5cf6;        /* Mor ton */
+  --birincil-koyu: #7c3aed;
+  --birincil-acik: #ede9fe;
+
+  /* Yazi tipini degistirmek icin */
+  --yazi-tipi: 'Poppins', sans-serif;
+
+  /* Yuvarlakligi degistirmek icin */
+  --yuvarlaklık: 0.75rem;
+}
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 metin-ortala metin-soluk">
+      <p class="kucuk-metin">netio.css v1.0.0 &mdash; Turkce CSS Framework</p>
+      <p class="kucuk-metin mb-0">Hafif, modern ve tamamen Turkce sinif isimleri ile.</p>
+    </footer>
+
+  </main>
+
+  <!-- ===== JAVASCRIPT (Minimal - Etkilesimler) ===== -->
+  <script>
+    // Tema degistirme
+    function temaDegistir() {
+      const html = document.documentElement;
+      const mevcutTema = html.getAttribute('data-tema');
+      html.setAttribute('data-tema', mevcutTema === 'koyu' ? 'acik' : 'koyu');
+    }
+
+    // Mobil menu ac/kapa
+    function menuAcKapa() {
+      document.getElementById('anaMenu').classList.toggle('acik');
+      document.querySelector('.gezinti-acilan').classList.toggle('acik');
+    }
+
+    // Modal ac/kapa
+    function modalAc() {
+      document.getElementById('ornekModal').classList.add('acik');
+      document.body.classList.add('modal-acik');
+    }
+    function modalKapat() {
+      document.getElementById('ornekModal').classList.remove('acik');
+      document.body.classList.remove('modal-acik');
+    }
+    // Modal disina tiklayinca kapat
+    document.getElementById('ornekModal').addEventListener('click', function(e) {
+      if (e.target === this) modalKapat();
+    });
+
+    // Akordiyon ac/kapa
+    function akordiyonAcKapa(btn) {
+      const oge = btn.parentElement;
+      oge.classList.toggle('acik');
+    }
+
+    // Sekme degistir
+    function sekmeAc(btn, hedefId) {
+      // Tum sekmeleri deaktif et
+      btn.parentElement.querySelectorAll('.sekme').forEach(s => s.classList.remove('aktif'));
+      btn.closest('.demo-kutu').querySelectorAll('.sekme-icerik').forEach(ic => ic.classList.remove('aktif'));
+      // Secileni aktif et
+      btn.classList.add('aktif');
+      document.getElementById(hedefId).classList.add('aktif');
+    }
+
+    // Uyari kapatma
+    document.querySelectorAll('.uyari-kapat').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.uyari').style.display = 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
