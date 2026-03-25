@@ -477,4 +477,4 @@ netio.css modern CSS özellikleri kullanır ve aşağıdaki tarayıcıları dest
 
 ## Lisans
 
-MIT Lisansı ile dağıtılmaktadır. Ticari ve kişisel projelerde serbestçe kullanılabilir.
+Apache-2.0 ile dağıtılmaktadır.
