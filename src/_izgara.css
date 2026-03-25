@@ -1,0 +1,201 @@
+/* ========================================
+   netio.css - Izgara (Grid) Sistemi
+   12 kolonlu, flexbox tabanli, responsive
+   ======================================== */
+
+/* --- Kapsayici (Container) --- */
+.kapsayici {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--aralik-4);
+  padding-right: var(--aralik-4);
+}
+
+/* Sivi kapsayici - tam genislik */
+.kapsayici-sivi {
+  width: 100%;
+  padding-left: var(--aralik-4);
+  padding-right: var(--aralik-4);
+}
+
+/* Breakpoint'lere gore kapsayici genislikleri */
+@media (min-width: 576px) {
+  .kapsayici { max-width: var(--kapsayici-kucuk); }
+}
+@media (min-width: 768px) {
+  .kapsayici { max-width: var(--kapsayici-orta); }
+}
+@media (min-width: 992px) {
+  .kapsayici { max-width: var(--kapsayici-buyuk); }
+}
+@media (min-width: 1200px) {
+  .kapsayici { max-width: var(--kapsayici-cok-buyuk); }
+}
+@media (min-width: 1400px) {
+  .kapsayici { max-width: var(--kapsayici-dev); }
+}
+
+/* --- Satir (Row) --- */
+.satir {
+  display: flex;
+  flex-wrap: wrap;               /* Alt satira gecis */
+  margin-left: calc(var(--aralik-4) * -0.5);
+  margin-right: calc(var(--aralik-4) * -0.5);
+}
+
+/* --- Kolon Temeli --- */
+[class*="kolon"] {
+  padding-left: calc(var(--aralik-4) * 0.5);
+  padding-right: calc(var(--aralik-4) * 0.5);
+}
+
+/* Otomatik kolon - esit genislik */
+.kolon {
+  flex: 1 0 0%;
+}
+
+/* Icerige gore kolon */
+.kolon-otomatik {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+/* --- Varsayilan Kolonlar (xs - mobil oncelikli) --- */
+.kolon-1  { flex: 0 0 auto; width: 8.333333%; }
+.kolon-2  { flex: 0 0 auto; width: 16.666667%; }
+.kolon-3  { flex: 0 0 auto; width: 25%; }
+.kolon-4  { flex: 0 0 auto; width: 33.333333%; }
+.kolon-5  { flex: 0 0 auto; width: 41.666667%; }
+.kolon-6  { flex: 0 0 auto; width: 50%; }
+.kolon-7  { flex: 0 0 auto; width: 58.333333%; }
+.kolon-8  { flex: 0 0 auto; width: 66.666667%; }
+.kolon-9  { flex: 0 0 auto; width: 75%; }
+.kolon-10 { flex: 0 0 auto; width: 83.333333%; }
+.kolon-11 { flex: 0 0 auto; width: 91.666667%; }
+.kolon-12 { flex: 0 0 auto; width: 100%; }
+
+/* --- Kucuk Ekran (sm >= 576px) --- */
+@media (min-width: 576px) {
+  .kolon-kucuk-1  { flex: 0 0 auto; width: 8.333333%; }
+  .kolon-kucuk-2  { flex: 0 0 auto; width: 16.666667%; }
+  .kolon-kucuk-3  { flex: 0 0 auto; width: 25%; }
+  .kolon-kucuk-4  { flex: 0 0 auto; width: 33.333333%; }
+  .kolon-kucuk-5  { flex: 0 0 auto; width: 41.666667%; }
+  .kolon-kucuk-6  { flex: 0 0 auto; width: 50%; }
+  .kolon-kucuk-7  { flex: 0 0 auto; width: 58.333333%; }
+  .kolon-kucuk-8  { flex: 0 0 auto; width: 66.666667%; }
+  .kolon-kucuk-9  { flex: 0 0 auto; width: 75%; }
+  .kolon-kucuk-10 { flex: 0 0 auto; width: 83.333333%; }
+  .kolon-kucuk-11 { flex: 0 0 auto; width: 91.666667%; }
+  .kolon-kucuk-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* --- Orta Ekran (md >= 768px) --- */
+@media (min-width: 768px) {
+  .kolon-orta-1  { flex: 0 0 auto; width: 8.333333%; }
+  .kolon-orta-2  { flex: 0 0 auto; width: 16.666667%; }
+  .kolon-orta-3  { flex: 0 0 auto; width: 25%; }
+  .kolon-orta-4  { flex: 0 0 auto; width: 33.333333%; }
+  .kolon-orta-5  { flex: 0 0 auto; width: 41.666667%; }
+  .kolon-orta-6  { flex: 0 0 auto; width: 50%; }
+  .kolon-orta-7  { flex: 0 0 auto; width: 58.333333%; }
+  .kolon-orta-8  { flex: 0 0 auto; width: 66.666667%; }
+  .kolon-orta-9  { flex: 0 0 auto; width: 75%; }
+  .kolon-orta-10 { flex: 0 0 auto; width: 83.333333%; }
+  .kolon-orta-11 { flex: 0 0 auto; width: 91.666667%; }
+  .kolon-orta-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* --- Buyuk Ekran (lg >= 992px) --- */
+@media (min-width: 992px) {
+  .kolon-buyuk-1  { flex: 0 0 auto; width: 8.333333%; }
+  .kolon-buyuk-2  { flex: 0 0 auto; width: 16.666667%; }
+  .kolon-buyuk-3  { flex: 0 0 auto; width: 25%; }
+  .kolon-buyuk-4  { flex: 0 0 auto; width: 33.333333%; }
+  .kolon-buyuk-5  { flex: 0 0 auto; width: 41.666667%; }
+  .kolon-buyuk-6  { flex: 0 0 auto; width: 50%; }
+  .kolon-buyuk-7  { flex: 0 0 auto; width: 58.333333%; }
+  .kolon-buyuk-8  { flex: 0 0 auto; width: 66.666667%; }
+  .kolon-buyuk-9  { flex: 0 0 auto; width: 75%; }
+  .kolon-buyuk-10 { flex: 0 0 auto; width: 83.333333%; }
+  .kolon-buyuk-11 { flex: 0 0 auto; width: 91.666667%; }
+  .kolon-buyuk-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* --- Cok Buyuk Ekran (xl >= 1200px) --- */
+@media (min-width: 1200px) {
+  .kolon-dev-1  { flex: 0 0 auto; width: 8.333333%; }
+  .kolon-dev-2  { flex: 0 0 auto; width: 16.666667%; }
+  .kolon-dev-3  { flex: 0 0 auto; width: 25%; }
+  .kolon-dev-4  { flex: 0 0 auto; width: 33.333333%; }
+  .kolon-dev-5  { flex: 0 0 auto; width: 41.666667%; }
+  .kolon-dev-6  { flex: 0 0 auto; width: 50%; }
+  .kolon-dev-7  { flex: 0 0 auto; width: 58.333333%; }
+  .kolon-dev-8  { flex: 0 0 auto; width: 66.666667%; }
+  .kolon-dev-9  { flex: 0 0 auto; width: 75%; }
+  .kolon-dev-10 { flex: 0 0 auto; width: 83.333333%; }
+  .kolon-dev-11 { flex: 0 0 auto; width: 91.666667%; }
+  .kolon-dev-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* --- Offset (Kayma) Siniflari --- */
+.kaydir-1  { margin-left: 8.333333%; }
+.kaydir-2  { margin-left: 16.666667%; }
+.kaydir-3  { margin-left: 25%; }
+.kaydir-4  { margin-left: 33.333333%; }
+.kaydir-5  { margin-left: 41.666667%; }
+.kaydir-6  { margin-left: 50%; }
+.kaydir-7  { margin-left: 58.333333%; }
+.kaydir-8  { margin-left: 66.666667%; }
+.kaydir-9  { margin-left: 75%; }
+.kaydir-10 { margin-left: 83.333333%; }
+.kaydir-11 { margin-left: 91.666667%; }
+
+/* --- Satir Hizalama --- */
+.satir-ortala {
+  justify-content: center;       /* Yatay ortala */
+}
+.satir-baslangic {
+  justify-content: flex-start;   /* Sola yasla */
+}
+.satir-bitis {
+  justify-content: flex-end;     /* Saga yasla */
+}
+.satir-arasi {
+  justify-content: space-between; /* Esit aralik */
+}
+.satir-etrafi {
+  justify-content: space-around; /* Etrafinda aralik */
+}
+
+/* Dikey hizalama */
+.hizala-ust {
+  align-items: flex-start;       /* Uste yasla */
+}
+.hizala-orta {
+  align-items: center;           /* Dikey ortala */
+}
+.hizala-alt {
+  align-items: flex-end;         /* Alta yasla */
+}
+.hizala-gerin {
+  align-items: stretch;          /* Esit yukseklik */
+}
+
+/* --- Bosluk (Gap) --- */
+.bosluk-0 { gap: 0; }
+.bosluk-1 { gap: var(--aralik-1); }
+.bosluk-2 { gap: var(--aralik-2); }
+.bosluk-3 { gap: var(--aralik-3); }
+.bosluk-4 { gap: var(--aralik-4); }
+.bosluk-5 { gap: var(--aralik-5); }
+.bosluk-6 { gap: var(--aralik-6); }
+
+/* --- Siralama --- */
+.sira-ilk  { order: -1; }
+.sira-son  { order: 9999; }
+.sira-0    { order: 0; }
+.sira-1    { order: 1; }
+.sira-2    { order: 2; }
+.sira-3    { order: 3; }

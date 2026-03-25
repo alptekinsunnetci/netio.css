@@ -1,0 +1,155 @@
+/* ========================================
+   netio.css - Ipucu (Tooltip) & Bilgi Balonu (Popover)
+   Hover/click ile bilgi gosterme
+   ======================================== */
+
+/* --- Tooltip (Ipucu) --- */
+/* Kullanim: <span class="ipucu" data-ipucu="Mesaj">Metin</span> */
+
+.ipucu {
+  position: relative;
+  cursor: pointer;
+}
+
+.ipucu::before,
+.ipucu::after {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--gecis);
+  pointer-events: none;
+  z-index: var(--z-ipucu);
+}
+
+/* Balon metni */
+.ipucu::after {
+  content: attr(data-ipucu);    /* data-ipucu icerigini goster */
+  bottom: calc(100% + 8px);     /* Ustte konumla */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--aralik-2) var(--aralik-3);
+  background: var(--koyu);
+  color: var(--metin-beyaz);
+  font-size: var(--yazi-boyutu-mini);
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: var(--yuvarlaklık);
+  box-shadow: var(--golge);
+}
+
+/* Ok isareti */
+.ipucu::before {
+  content: "";
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--koyu);
+}
+
+/* Hover durumunda goster */
+.ipucu:hover::before,
+.ipucu:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Tooltip Yonleri --- */
+
+/* Alt ipucu */
+.ipucu-alt::after {
+  bottom: auto;
+  top: calc(100% + 8px);
+}
+.ipucu-alt::before {
+  bottom: auto;
+  top: calc(100% + 2px);
+  border-top-color: transparent;
+  border-bottom-color: var(--koyu);
+}
+
+/* Sol ipucu */
+.ipucu-sol::after {
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  right: calc(100% + 8px);
+  transform: translateY(-50%);
+}
+.ipucu-sol::before {
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  right: calc(100% + 2px);
+  transform: translateY(-50%);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: var(--koyu);
+}
+
+/* Sag ipucu */
+.ipucu-sag::after {
+  bottom: auto;
+  top: 50%;
+  left: calc(100% + 8px);
+  transform: translateY(-50%);
+}
+.ipucu-sag::before {
+  bottom: auto;
+  top: 50%;
+  left: calc(100% + 2px);
+  transform: translateY(-50%);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: var(--koyu);
+}
+
+/* ========================================
+   Bilgi Balonu (Popover)
+   Daha genis, baslikli bilgi kutusu
+   ======================================== */
+
+.bilgi-balonu {
+  position: relative;
+  display: inline-block;
+}
+
+.bilgi-balonu-icerik {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16rem;
+  padding: var(--aralik-4);
+  background: var(--arkaplan);
+  border: 1px solid var(--kenar-renk);
+  border-radius: var(--yuvarlaklık-orta);
+  box-shadow: var(--golge-orta);
+  z-index: var(--z-ipucu);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--gecis);
+}
+
+/* Acik durumu */
+.bilgi-balonu:hover .bilgi-balonu-icerik,
+.bilgi-balonu-icerik.acik {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Balon basligi */
+.bilgi-balonu-baslik {
+  font-weight: 600;
+  font-size: var(--yazi-boyutu-kucuk);
+  margin-bottom: var(--aralik-2);
+  padding-bottom: var(--aralik-2);
+  border-bottom: 1px solid var(--kenar-renk);
+}
+
+/* Balon metni */
+.bilgi-balonu-metin {
+  font-size: var(--yazi-boyutu-kucuk);
+  color: var(--metin-soluk);
+  line-height: 1.5;
+}

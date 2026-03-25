@@ -1,0 +1,276 @@
+/* ========================================
+   netio.css - Form Elemanlari
+   Input, select, checkbox, radio, switch
+   ======================================== */
+
+/* --- Form Grubu --- */
+.form-grup {
+  margin-bottom: var(--aralik-4);
+}
+
+/* --- Etiket (Label) --- */
+.form-etiket {
+  display: block;
+  margin-bottom: var(--aralik-2);
+  font-weight: 500;
+  font-size: var(--yazi-boyutu-kucuk);
+  color: var(--metin);
+}
+
+/* --- Temel Girdi (Input) --- */
+.form-girdi {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: var(--yazi-boyutu-temel);
+  line-height: 1.5;
+  color: var(--metin);
+  background: var(--arkaplan);
+  border: var(--kenar-kalinlik) solid var(--kenar-renk);
+  border-radius: var(--yuvarlaklık);
+  transition: var(--gecis);
+  appearance: none;              /* Tarayici stilini kaldir */
+}
+.form-girdi:focus {
+  border-color: var(--birincil);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--birincil-acik); /* Odak halkasi */
+}
+.form-girdi::placeholder {
+  color: var(--metin-soluk);
+  opacity: 0.7;
+}
+
+/* --- Girdi Boyutlari --- */
+.form-girdi-kucuk {
+  padding: 0.3rem 0.5rem;
+  font-size: var(--yazi-boyutu-kucuk);
+}
+.form-girdi-buyuk {
+  padding: 0.65rem 1rem;
+  font-size: var(--yazi-boyutu-buyuk);
+}
+
+/* --- Metin Alani (Textarea) --- */
+.form-metin {
+  display: block;
+  width: 100%;
+  min-height: 6rem;
+  padding: 0.5rem 0.75rem;
+  font-size: var(--yazi-boyutu-temel);
+  line-height: 1.5;
+  color: var(--metin);
+  background: var(--arkaplan);
+  border: var(--kenar-kalinlik) solid var(--kenar-renk);
+  border-radius: var(--yuvarlaklık);
+  resize: vertical;
+  transition: var(--gecis);
+}
+.form-metin:focus {
+  border-color: var(--birincil);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--birincil-acik);
+}
+
+/* --- Secim Kutusu (Select) --- */
+.form-secim {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-size: var(--yazi-boyutu-temel);
+  color: var(--metin);
+  background: var(--arkaplan);
+  border: var(--kenar-kalinlik) solid var(--kenar-renk);
+  border-radius: var(--yuvarlaklık);
+  appearance: none;
+  /* Ok isareti */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  cursor: pointer;
+  transition: var(--gecis);
+}
+.form-secim:focus {
+  border-color: var(--birincil);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--birincil-acik);
+}
+
+/* --- Onay Kutusu (Checkbox) --- */
+.form-onay {
+  display: flex;
+  align-items: center;
+  gap: var(--aralik-2);
+  cursor: pointer;
+  margin-bottom: var(--aralik-2);
+}
+.form-onay input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--birincil);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* --- Radyo Butonu (Radio) --- */
+.form-radyo {
+  display: flex;
+  align-items: center;
+  gap: var(--aralik-2);
+  cursor: pointer;
+  margin-bottom: var(--aralik-2);
+}
+.form-radyo input[type="radio"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--birincil);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* --- Anahtar (Switch/Toggle) --- */
+.form-anahtar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--aralik-2);
+  cursor: pointer;
+}
+.form-anahtar input {
+  position: relative;
+  width: 2.5rem;
+  height: 1.4rem;
+  appearance: none;
+  background: var(--ikincil);
+  border-radius: var(--yuvarlaklık-tam);
+  cursor: pointer;
+  transition: var(--gecis);
+}
+.form-anahtar input::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(1.4rem - 4px);
+  height: calc(1.4rem - 4px);
+  background: var(--beyaz);
+  border-radius: 50%;
+  transition: var(--gecis);      /* Kayma animasyonu */
+}
+.form-anahtar input:checked {
+  background: var(--birincil);   /* Aktif renk */
+}
+.form-anahtar input:checked::before {
+  left: calc(2.5rem - 1.4rem + 2px); /* Saga kay */
+}
+
+/* --- Dogrulama Durumlari --- */
+.form-girdi.gecerli,
+.form-metin.gecerli,
+.form-secim.gecerli {
+  border-color: var(--basari);   /* Yesil kenar */
+}
+.form-girdi.gecerli:focus,
+.form-metin.gecerli:focus {
+  box-shadow: 0 0 0 3px var(--basari-acik);
+}
+
+.form-girdi.gecersiz,
+.form-metin.gecersiz,
+.form-secim.gecersiz {
+  border-color: var(--tehlike);  /* Kirmizi kenar */
+}
+.form-girdi.gecersiz:focus,
+.form-metin.gecersiz:focus {
+  box-shadow: 0 0 0 3px var(--tehlike-acik);
+}
+
+/* Dogrulama mesajlari */
+.form-gecerli-mesaj {
+  font-size: var(--yazi-boyutu-kucuk);
+  color: var(--basari);
+  margin-top: var(--aralik-1);
+}
+.form-gecersiz-mesaj {
+  font-size: var(--yazi-boyutu-kucuk);
+  color: var(--tehlike);
+  margin-top: var(--aralik-1);
+}
+
+/* --- Devre Disi Girdi --- */
+.form-girdi:disabled,
+.form-metin:disabled,
+.form-secim:disabled {
+  background: var(--arkaplan-ikincil);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Yardim Metni --- */
+.form-yardim {
+  font-size: var(--yazi-boyutu-kucuk);
+  color: var(--metin-soluk);
+  margin-top: var(--aralik-1);
+}
+
+/* --- Girdi Grubu (Input Group) --- */
+.girdi-grubu {
+  display: flex;
+  align-items: stretch;
+}
+.girdi-grubu .form-girdi {
+  flex: 1;
+  border-radius: 0;
+}
+.girdi-grubu .form-girdi:first-child {
+  border-radius: var(--yuvarlaklık) 0 0 var(--yuvarlaklık);
+}
+.girdi-grubu .form-girdi:last-child {
+  border-radius: 0 var(--yuvarlaklık) var(--yuvarlaklık) 0;
+}
+.girdi-on-ek,
+.girdi-son-ek {
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  font-size: var(--yazi-boyutu-kucuk);
+  color: var(--metin-soluk);
+  background: var(--arkaplan-ikincil);
+  border: var(--kenar-kalinlik) solid var(--kenar-renk);
+  white-space: nowrap;
+}
+.girdi-on-ek {
+  border-right: none;
+  border-radius: var(--yuvarlaklık) 0 0 var(--yuvarlaklık);
+}
+.girdi-son-ek {
+  border-left: none;
+  border-radius: 0 var(--yuvarlaklık) var(--yuvarlaklık) 0;
+}
+
+/* --- Satir Ici Form --- */
+.form-satir {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--aralik-4);
+}
+.form-satir .form-grup {
+  margin-bottom: 0;
+}
+
+/* --- Dosya Girdi --- */
+.form-dosya {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: var(--yazi-boyutu-temel);
+  color: var(--metin-soluk);
+  background: var(--arkaplan);
+  border: var(--kenar-kalinlik) dashed var(--kenar-renk);
+  border-radius: var(--yuvarlaklık);
+  cursor: pointer;
+  transition: var(--gecis);
+}
+.form-dosya:hover {
+  border-color: var(--birincil);
+}

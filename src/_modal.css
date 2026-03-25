@@ -1,0 +1,119 @@
+/* ========================================
+   netio.css - Modal (Acilir Pencere)
+   Overlay, dialog, kapatma butonu
+   ======================================== */
+
+/* --- Modal Perde (Overlay) --- */
+.modal-perde {
+  position: fixed;
+  inset: 0;                      /* top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.5); /* Yarisaydam siyah */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-perde);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--gecis-yavas);
+  padding: var(--aralik-4);
+}
+
+/* Acik durumu */
+.modal-perde.acik {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Modal Pencere --- */
+.modal-pencere {
+  background: var(--arkaplan);
+  border-radius: var(--yuvarlaklık-buyuk);
+  box-shadow: var(--golge-dev);
+  width: 100%;
+  max-width: 32rem;             /* Varsayilan genislik */
+  max-height: 90vh;             /* Maksimum yukseklik */
+  overflow-y: auto;
+  transform: scale(0.95) translateY(10px);
+  transition: var(--gecis-yavas);
+}
+.modal-perde.acik .modal-pencere {
+  transform: scale(1) translateY(0); /* Acilma animasyonu */
+}
+
+/* Boyut varyantlari */
+.modal-kucuk {
+  max-width: 24rem;             /* 384px */
+}
+.modal-buyuk {
+  max-width: 48rem;             /* 768px */
+}
+.modal-tam {
+  max-width: 90vw;              /* Ekranin %90'i */
+  max-height: 90vh;
+}
+
+/* --- Modal Baslik Alani --- */
+.modal-baslik {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--aralik-4) var(--aralik-5);
+  border-bottom: 1px solid var(--kenar-renk);
+}
+.modal-baslik h3,
+.modal-baslik h4 {
+  margin: 0;
+  font-size: var(--baslik-5);
+}
+
+/* --- Modal Govde --- */
+.modal-govde {
+  padding: var(--aralik-5);
+  line-height: var(--satir-yuksekligi);
+}
+
+/* --- Modal Alt Kisim --- */
+.modal-altlik {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--aralik-3);
+  padding: var(--aralik-4) var(--aralik-5);
+  border-top: 1px solid var(--kenar-renk);
+}
+
+/* --- Kapatma Butonu --- */
+.modal-kapat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  border-radius: var(--yuvarlaklık);
+  cursor: pointer;
+  color: var(--metin-soluk);
+  font-size: 1.25rem;
+  transition: var(--gecis);
+  line-height: 1;
+}
+.modal-kapat:hover {
+  background: var(--arkaplan-ikincil);
+  color: var(--metin);
+}
+/* X ikonu - CSS ile */
+.modal-kapat::after {
+  content: "\00d7";              /* Unicode carpi isareti */
+  font-size: 1.5rem;
+}
+
+/* --- Ortali Modal --- */
+.modal-perde-ortali {
+  align-items: center;
+}
+
+/* --- Kaydirma Kilidi (Body scroll lock) --- */
+.modal-acik {
+  overflow: hidden;              /* Body kaydirmayi kilitle */
+}

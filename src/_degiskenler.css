@@ -1,0 +1,150 @@
+/* ========================================
+   netio.css - Degiskenler & Tema Sistemi
+   Tum renk, boyut ve tasarim degiskenleri
+   ======================================== */
+
+:root {
+  /* --- Ana Renkler --- */
+  --birincil: #3b82f6;           /* Ana mavi */
+  --birincil-koyu: #2563eb;      /* Hover durumu */
+  --birincil-acik: #dbeafe;      /* Acik varyant */
+  --ikincil: #6b7280;            /* Gri ton */
+  --ikincil-koyu: #4b5563;
+  --ikincil-acik: #f3f4f6;
+  --basari: #22c55e;             /* Yesil - basari */
+  --basari-koyu: #16a34a;
+  --basari-acik: #dcfce7;
+  --tehlike: #ef4444;            /* Kirmizi - hata/tehlike */
+  --tehlike-koyu: #dc2626;
+  --tehlike-acik: #fee2e2;
+  --uyari: #f59e0b;              /* Sari - uyari */
+  --uyari-koyu: #d97706;
+  --uyari-acik: #fef3c7;
+  --bilgi: #06b6d4;              /* Camgobegi - bilgi */
+  --bilgi-koyu: #0891b2;
+  --bilgi-acik: #cffafe;
+
+  /* --- Notr Renkler --- */
+  --beyaz: #ffffff;
+  --siyah: #000000;
+  --acik: #f8fafc;               /* Acik arkaplan */
+  --koyu: #1e293b;               /* Koyu metin */
+
+  /* --- Metin Renkleri --- */
+  --metin: #1e293b;              /* Ana metin */
+  --metin-soluk: #64748b;        /* Ikincil metin */
+  --metin-beyaz: #ffffff;        /* Beyaz metin */
+  --metin-baglanti: var(--birincil); /* Link rengi */
+
+  /* --- Arkaplan --- */
+  --arkaplan: #ffffff;           /* Sayfa arkaplan */
+  --arkaplan-ikincil: #f1f5f9;   /* Ikincil arkaplan */
+  --arkaplan-ucuncul: #e2e8f0;   /* Ucuncul arkaplan */
+
+  /* --- Kenar --- */
+  --kenar-renk: #e2e8f0;        /* Kenar cizgisi rengi */
+  --kenar-kalinlik: 1px;         /* Kenar cizgisi kalinligi */
+
+  /* --- Yazi Tipi --- */
+  --yazi-tipi: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --yazi-tipi-kod: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --yazi-boyutu-temel: 1rem;     /* 16px */
+  --yazi-boyutu-kucuk: 0.875rem; /* 14px */
+  --yazi-boyutu-mini: 0.75rem;   /* 12px */
+  --yazi-boyutu-buyuk: 1.125rem; /* 18px */
+  --yazi-boyutu-dev: 1.25rem;    /* 20px */
+  --satir-yuksekligi: 1.6;       /* Satir araligi */
+
+  /* --- Baslik Boyutlari --- */
+  --baslik-1: 2.5rem;            /* h1 - 40px */
+  --baslik-2: 2rem;              /* h2 - 32px */
+  --baslik-3: 1.75rem;           /* h3 - 28px */
+  --baslik-4: 1.5rem;            /* h4 - 24px */
+  --baslik-5: 1.25rem;           /* h5 - 20px */
+  --baslik-6: 1rem;              /* h6 - 16px */
+
+  /* --- Aralik (Spacing) --- */
+  --aralik-0: 0;
+  --aralik-1: 0.25rem;           /* 4px */
+  --aralik-2: 0.5rem;            /* 8px */
+  --aralik-3: 0.75rem;           /* 12px */
+  --aralik-4: 1rem;              /* 16px */
+  --aralik-5: 1.5rem;            /* 24px */
+  --aralik-6: 2rem;              /* 32px */
+  --aralik-7: 3rem;              /* 48px */
+  --aralik-8: 4rem;              /* 64px */
+
+  /* --- Kenar Yuvarlaklik --- */
+  --yuvarlaklık-yok: 0;
+  --yuvarlaklık-kucuk: 0.25rem;  /* 4px */
+  --yuvarlaklık: 0.375rem;       /* 6px */
+  --yuvarlaklık-orta: 0.5rem;    /* 8px */
+  --yuvarlaklık-buyuk: 0.75rem;  /* 12px */
+  --yuvarlaklık-tam: 9999px;     /* Tam yuvarlak */
+
+  /* --- Golge --- */
+  --golge-yok: none;
+  --golge-kucuk: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --golge: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --golge-orta: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --golge-buyuk: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --golge-dev: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* --- Gecis (Transition) --- */
+  --gecis: all 0.2s ease;
+  --gecis-hizli: all 0.1s ease;
+  --gecis-yavas: all 0.3s ease;
+
+  /* --- Z-Index Katmanlari --- */
+  --z-acilir: 1000;              /* Dropdown */
+  --z-yapisan: 1020;             /* Sticky */
+  --z-sabit: 1030;               /* Fixed navbar */
+  --z-perde: 1040;               /* Modal overlay */
+  --z-modal: 1050;               /* Modal pencere */
+  --z-ipucu: 1060;               /* Tooltip */
+  --z-bildirim: 1070;            /* Toast/notification */
+
+  /* --- Kapsayici (Container) Genislikleri --- */
+  --kapsayici-kucuk: 540px;      /* sm */
+  --kapsayici-orta: 720px;       /* md */
+  --kapsayici-buyuk: 960px;      /* lg */
+  --kapsayici-cok-buyuk: 1140px; /* xl */
+  --kapsayici-dev: 1320px;       /* xxl */
+}
+
+/* ========================================
+   Koyu Tema (Dark Mode)
+   data-tema="koyu" veya .tema-koyu sinifi
+   ======================================== */
+[data-tema="koyu"],
+.tema-koyu {
+  --metin: #e2e8f0;              /* Acik metin */
+  --metin-soluk: #94a3b8;        /* Soluk metin */
+  --metin-beyaz: #ffffff;
+  --arkaplan: #0f172a;           /* Koyu arkaplan */
+  --arkaplan-ikincil: #1e293b;
+  --arkaplan-ucuncul: #334155;
+  --kenar-renk: #475569;
+  --koyu: #f1f5f9;
+  --acik: #1e293b;
+  --golge-kucuk: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --golge: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --golge-orta: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --golge-buyuk: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   Sistem Tercihi ile Otomatik Koyu Tema
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="acik"]):not(.tema-acik) {
+    --metin: #e2e8f0;
+    --metin-soluk: #94a3b8;
+    --arkaplan: #0f172a;
+    --arkaplan-ikincil: #1e293b;
+    --arkaplan-ucuncul: #334155;
+    --kenar-renk: #475569;
+    --koyu: #f1f5f9;
+    --acik: #1e293b;
+  }
+}

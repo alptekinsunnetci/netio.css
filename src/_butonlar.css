@@ -1,0 +1,267 @@
+/* ========================================
+   netio.css - Butonlar
+   Farkli boyut, renk, durum ve efektler
+   ======================================== */
+
+/* --- Temel Buton --- */
+.buton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--aralik-2);
+  padding: 0.5rem 1rem;
+  font-size: var(--yazi-boyutu-temel);
+  font-weight: 500;
+  line-height: 1.5;
+  border: 2px solid transparent;
+  border-radius: var(--yuvarlaklık);
+  cursor: pointer;
+  transition: var(--gecis);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;             /* Metin secimi engelle */
+}
+.buton:hover {
+  transform: translateY(-1px);   /* Hafif yukari kayma */
+}
+.buton:active {
+  transform: translateY(0);      /* Basildiginda geri */
+}
+
+/* --- Renk Varyantlari --- */
+.buton-birincil {
+  background: var(--birincil);
+  color: var(--metin-beyaz);
+}
+.buton-birincil:hover {
+  background: var(--birincil-koyu);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-ikincil {
+  background: var(--ikincil);
+  color: var(--metin-beyaz);
+}
+.buton-ikincil:hover {
+  background: var(--ikincil-koyu);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-basari {
+  background: var(--basari);
+  color: var(--metin-beyaz);
+}
+.buton-basari:hover {
+  background: var(--basari-koyu);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-tehlike {
+  background: var(--tehlike);
+  color: var(--metin-beyaz);
+}
+.buton-tehlike:hover {
+  background: var(--tehlike-koyu);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-uyari {
+  background: var(--uyari);
+  color: var(--koyu);
+}
+.buton-uyari:hover {
+  background: var(--uyari-koyu);
+  color: var(--koyu);
+  text-decoration: none;
+}
+
+.buton-bilgi {
+  background: var(--bilgi);
+  color: var(--metin-beyaz);
+}
+.buton-bilgi:hover {
+  background: var(--bilgi-koyu);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-acik {
+  background: var(--acik);
+  color: var(--koyu);
+}
+.buton-acik:hover {
+  background: var(--arkaplan-ucuncul);
+  text-decoration: none;
+}
+
+.buton-koyu {
+  background: var(--koyu);
+  color: var(--metin-beyaz);
+}
+.buton-koyu:hover {
+  background: var(--siyah);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+/* --- Cizgili (Outline) Butonlar --- */
+.buton-cizgili-birincil {
+  background: transparent;
+  color: var(--birincil);
+  border-color: var(--birincil);
+}
+.buton-cizgili-birincil:hover {
+  background: var(--birincil);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-cizgili-ikincil {
+  background: transparent;
+  color: var(--ikincil);
+  border-color: var(--ikincil);
+}
+.buton-cizgili-ikincil:hover {
+  background: var(--ikincil);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-cizgili-basari {
+  background: transparent;
+  color: var(--basari);
+  border-color: var(--basari);
+}
+.buton-cizgili-basari:hover {
+  background: var(--basari);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-cizgili-tehlike {
+  background: transparent;
+  color: var(--tehlike);
+  border-color: var(--tehlike);
+}
+.buton-cizgili-tehlike:hover {
+  background: var(--tehlike);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+.buton-cizgili-uyari {
+  background: transparent;
+  color: var(--uyari);
+  border-color: var(--uyari);
+}
+.buton-cizgili-uyari:hover {
+  background: var(--uyari);
+  color: var(--koyu);
+  text-decoration: none;
+}
+
+.buton-cizgili-bilgi {
+  background: transparent;
+  color: var(--bilgi);
+  border-color: var(--bilgi);
+}
+.buton-cizgili-bilgi:hover {
+  background: var(--bilgi);
+  color: var(--metin-beyaz);
+  text-decoration: none;
+}
+
+/* --- Boyutlar --- */
+.buton-mini {
+  padding: 0.2rem 0.5rem;
+  font-size: var(--yazi-boyutu-mini);
+  border-radius: var(--yuvarlaklık-kucuk);
+}
+.buton-kucuk {
+  padding: 0.35rem 0.75rem;
+  font-size: var(--yazi-boyutu-kucuk);
+}
+.buton-buyuk {
+  padding: 0.65rem 1.5rem;
+  font-size: var(--yazi-boyutu-buyuk);
+}
+.buton-dev {
+  padding: 0.85rem 2rem;
+  font-size: var(--yazi-boyutu-dev);
+  border-radius: var(--yuvarlaklık-orta);
+}
+
+/* --- Ozel Stiller --- */
+.buton-yuvarlak {
+  border-radius: var(--yuvarlaklık-tam); /* Tam yuvarlak kenar */
+}
+.buton-kare {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;                   /* Ikon buton icin kare */
+}
+.buton-tam {
+  width: 100%;                   /* Tam genislik */
+}
+.buton-boglanti {
+  background: none;
+  border: none;
+  color: var(--birincil);
+  padding: 0;
+  text-decoration: underline;   /* Link gorunumlu buton */
+}
+.buton-boglanti:hover {
+  color: var(--birincil-koyu);
+}
+
+/* --- Devre Disi --- */
+.buton:disabled,
+.buton.devre-disi {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;          /* Tiklama engelle */
+  transform: none;
+}
+
+/* --- Buton Grubu --- */
+.buton-grubu {
+  display: inline-flex;
+}
+.buton-grubu .buton {
+  border-radius: 0;             /* Ara butonlar yuvarlaksiz */
+}
+.buton-grubu .buton:first-child {
+  border-radius: var(--yuvarlaklık) 0 0 var(--yuvarlaklık);
+}
+.buton-grubu .buton:last-child {
+  border-radius: 0 var(--yuvarlaklık) var(--yuvarlaklık) 0;
+}
+.buton-grubu .buton + .buton {
+  margin-left: -2px;             /* Kenarlari cakistir */
+}
+
+/* --- Yukleniyor Durumu --- */
+.buton.yukleniyor {
+  position: relative;
+  color: transparent;            /* Metni gizle */
+  pointer-events: none;
+}
+.buton.yukleniyor::after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: dondur 0.6s linear infinite;
+  color: var(--metin-beyaz);
+}
+
+@keyframes dondur {
+  to { transform: rotate(360deg); }
+}

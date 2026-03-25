@@ -1,0 +1,190 @@
+/* ========================================
+   netio.css - Tipografi
+   Basliklar, paragraflar, metin stilleri
+   ======================================== */
+
+/* --- Basliklar --- */
+.baslik-1, h1 { font-size: var(--baslik-1); margin-bottom: var(--aralik-4); }
+.baslik-2, h2 { font-size: var(--baslik-2); margin-bottom: var(--aralik-4); }
+.baslik-3, h3 { font-size: var(--baslik-3); margin-bottom: var(--aralik-3); }
+.baslik-4, h4 { font-size: var(--baslik-4); margin-bottom: var(--aralik-3); }
+.baslik-5, h5 { font-size: var(--baslik-5); margin-bottom: var(--aralik-2); }
+.baslik-6, h6 { font-size: var(--baslik-6); margin-bottom: var(--aralik-2); }
+
+/* Goruntuleme basliklari - ekstra buyuk */
+.goruntu-1 { font-size: 5rem; font-weight: 300; line-height: 1.2; }
+.goruntu-2 { font-size: 4.5rem; font-weight: 300; line-height: 1.2; }
+.goruntu-3 { font-size: 4rem; font-weight: 300; line-height: 1.2; }
+.goruntu-4 { font-size: 3.5rem; font-weight: 300; line-height: 1.2; }
+
+/* --- Paragraf --- */
+.paragraf {
+  margin-bottom: var(--aralik-4);
+  line-height: var(--satir-yuksekligi);
+}
+
+/* On paragraf - vurgulu giris */
+.on-paragraf {
+  font-size: var(--yazi-boyutu-buyuk);
+  color: var(--metin-soluk);
+  line-height: 1.8;
+  margin-bottom: var(--aralik-5);
+}
+
+/* --- Metin Stilleri --- */
+.kalin, strong, b {
+  font-weight: 700;             /* Kalin yazi */
+}
+.yarim-kalin {
+  font-weight: 600;             /* Yarim kalin */
+}
+.ince {
+  font-weight: 300;             /* Ince yazi */
+}
+.normal-agirlik {
+  font-weight: 400;             /* Normal */
+}
+.italik, em, i {
+  font-style: italic;           /* Italik */
+}
+.alti-cizili, u {
+  text-decoration: underline;   /* Alt cizgi */
+}
+.ustu-cizili {
+  text-decoration: line-through; /* Ustu cizili */
+}
+.buyuk-harf {
+  text-transform: uppercase;    /* BUYUK HARF */
+  letter-spacing: 0.05em;
+}
+.kucuk-harf {
+  text-transform: lowercase;    /* kucuk harf */
+}
+.bas-harfler {
+  text-transform: capitalize;   /* Bas Harfler */
+}
+
+/* --- Yazi Boyutlari --- */
+.yazi-mini    { font-size: var(--yazi-boyutu-mini); }   /* 12px */
+.yazi-kucuk   { font-size: var(--yazi-boyutu-kucuk); }  /* 14px */
+.yazi-normal  { font-size: var(--yazi-boyutu-temel); }  /* 16px */
+.yazi-buyuk   { font-size: var(--yazi-boyutu-buyuk); }  /* 18px */
+.yazi-dev     { font-size: var(--yazi-boyutu-dev); }    /* 20px */
+
+/* --- Satir Araligi --- */
+.satir-sikisik { line-height: 1.25; }
+.satir-normal  { line-height: 1.5; }
+.satir-genis   { line-height: 1.75; }
+.satir-rahat   { line-height: 2; }
+
+/* --- Metin Hizalama --- */
+.metin-sol     { text-align: left; }
+.metin-orta    { text-align: center; }
+.metin-sag     { text-align: right; }
+.metin-duzgun  { text-align: justify; }  /* Iki yana yasla */
+
+/* --- Alinti (Blockquote) --- */
+.alinti {
+  padding: var(--aralik-4) var(--aralik-5);
+  margin-bottom: var(--aralik-4);
+  border-left: 4px solid var(--birincil);
+  background: var(--arkaplan-ikincil);
+  border-radius: 0 var(--yuvarlaklık) var(--yuvarlaklık) 0;
+  color: var(--metin-soluk);
+  font-style: italic;
+}
+
+/* --- Kod Blogu --- */
+.kod,
+code {
+  font-family: var(--yazi-tipi-kod);
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background: var(--arkaplan-ikincil);
+  border-radius: var(--yuvarlaklık-kucuk);
+  color: var(--tehlike);
+}
+
+/* Cok satirli kod blogu */
+.kod-blogu,
+pre {
+  font-family: var(--yazi-tipi-kod);
+  font-size: 0.875em;
+  padding: var(--aralik-4);
+  background: var(--koyu);
+  color: var(--acik);
+  border-radius: var(--yuvarlaklık-orta);
+  overflow-x: auto;             /* Yatay kaydirma */
+  margin-bottom: var(--aralik-4);
+  line-height: 1.6;
+}
+.kod-blogu code,
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* --- Listeler --- */
+.liste {
+  margin-bottom: var(--aralik-4);
+  padding-left: var(--aralik-5);
+}
+.liste-sirali {
+  list-style: decimal;
+  margin-bottom: var(--aralik-4);
+  padding-left: var(--aralik-5);
+}
+.liste-sirasiz {
+  list-style: disc;
+  margin-bottom: var(--aralik-4);
+  padding-left: var(--aralik-5);
+}
+.liste li,
+.liste-sirali li,
+.liste-sirasiz li {
+  margin-bottom: var(--aralik-2);
+}
+.liste-cizgisiz {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* --- Yatay Cizgi --- */
+.ayirici,
+hr {
+  border: none;
+  height: 1px;
+  background: var(--kenar-renk);
+  margin: var(--aralik-5) 0;
+}
+
+/* --- Isaretli Metin --- */
+.isaretli,
+mark {
+  background: var(--uyari-acik);
+  padding: 0.1em 0.3em;
+  border-radius: var(--yuvarlaklık-kucuk);
+}
+
+/* --- Kucuk Metin --- */
+.kucuk-metin,
+small {
+  font-size: 0.875em;
+  color: var(--metin-soluk);
+}
+
+/* --- Metin Kesme --- */
+.metin-kes {
+  overflow: hidden;
+  text-overflow: ellipsis;       /* ... ile kes */
+  white-space: nowrap;
+}
+
+/* Cok satirli kesme (3 satir) */
+.metin-kes-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

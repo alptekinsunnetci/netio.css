@@ -1,0 +1,120 @@
+/* ========================================
+   netio.css - Sifirlama (Reset/Normalize)
+   Tarayici varsayilanlarini sifirlar
+   ======================================== */
+
+/* Kutu modeli: border-box tum elemanlar icin */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML temel ayar */
+html {
+  font-size: 16px;               /* 1rem = 16px */
+  -webkit-text-size-adjust: 100%; /* Mobil yazi boyutu sabitle */
+  -moz-tab-size: 4;
+  tab-size: 4;
+  scroll-behavior: smooth;       /* Yumusak kaydirma */
+}
+
+/* Body temel stiller */
+body {
+  font-family: var(--yazi-tipi);
+  font-size: var(--yazi-boyutu-temel);
+  line-height: var(--satir-yuksekligi);
+  color: var(--metin);
+  background-color: var(--arkaplan);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Basliklar: varsayilan margin kaldir */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--metin);
+}
+
+/* Paragraf alt bosluk */
+p {
+  margin-bottom: var(--aralik-4);
+}
+
+/* Linkler */
+a {
+  color: var(--metin-baglanti);
+  text-decoration: none;
+  transition: var(--gecis);
+}
+
+a:hover {
+  color: var(--birincil-koyu);
+  text-decoration: underline;
+}
+
+/* Resimler */
+img,
+svg,
+video {
+  max-width: 100%;               /* Responsive resimler */
+  height: auto;
+  display: block;
+}
+
+/* Listeler */
+ul, ol {
+  list-style: none;
+}
+
+/* Tablo */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* Form elemanlari */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;          /* Yazi tipini miras al */
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Buton temizligi */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Textarea yeniden boyutlandirma */
+textarea {
+  resize: vertical;              /* Sadece dikey boyutlandirma */
+}
+
+/* Gizli eleman */
+[hidden] {
+  display: none !important;
+}
+
+/* Odak halkasi (Accessibility) */
+:focus-visible {
+  outline: 2px solid var(--birincil);
+  outline-offset: 2px;
+}
+
+/* Yazdirma icin temel ayarlar */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+}
